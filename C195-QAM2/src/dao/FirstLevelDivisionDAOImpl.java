@@ -68,7 +68,7 @@ public class FirstLevelDivisionDAOImpl implements FirstLevelDivisionDAO{
     public int insert(FirstLevelDivision division) throws SQLException {
         Connection conn = JDBC.getConnection();
         String sql = "INSERT INTO First_Level_Divisions (Division, Create_Date, Created_By, Last_Update, Last_Updated_By, Country_ID) VALUES (?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
         ps.setString(1, division.getName());
         ps.setTimestamp(2, division.getDateCreated());
@@ -78,8 +78,15 @@ public class FirstLevelDivisionDAOImpl implements FirstLevelDivisionDAO{
         ps.setInt(6, division.getCountryID());
 
         int result = ps.executeUpdate();
+        ResultSet rs = ps.getGeneratedKeys();
+
+        if(rs.next()){
+            int id = rs.getInt(1);
+            division.setId(id);
+        }
 
         JDBC.closePreparedStatement(ps);
+        JDBC.closeResultSet(rs);
         JDBC.closeConnection(conn);
 
         return result;
@@ -88,7 +95,7 @@ public class FirstLevelDivisionDAOImpl implements FirstLevelDivisionDAO{
     @Override
     public int update(FirstLevelDivision division) throws SQLException {
         Connection conn = JDBC.getConnection();
-        String sql = "UPDATE First_Level_Divisions SET Division = ?, Create_Date = ?, Created_By = ?, Last_Update = ?, Last_Update_By = ?, Country_ID = ? " +
+        String sql = "UPDATE First_Level_Divisions SET Division = ?, Create_Date = ?, Created_By = ?, Last_Update = ?, Last_Updated_By = ?, Country_ID = ? " +
                 "WHERE Division_ID = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, division.getName());

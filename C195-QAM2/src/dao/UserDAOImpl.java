@@ -88,6 +88,7 @@ public class UserDAOImpl implements UserDAO{
         }
 
         JDBC.closePreparedStatement(ps);
+        JDBC.closeResultSet(rs);
         JDBC.closeConnection(conn);
 
         return result;

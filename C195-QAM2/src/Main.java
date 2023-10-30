@@ -26,21 +26,21 @@ public class Main {
        List<User> users = userDAO.getAll();
 */
         Timestamp stamp = new Timestamp(System.currentTimeMillis());
-/*       Appointment appointment = new Appointment(1000, "test", "test", "ur moms house", "pimples", stamp, stamp, stamp, "ur mom", stamp, "ur mom", 1, 2, 1);
-       Contact contact = new Contact(1000, "Paul", "jaramillo.paul12@gmail.com");
-       Country country = new Country(1000, "Utopia", stamp, "ur mom", stamp, "ur mom");
-       Customer customer = new Customer(1000, "ur mom", "ur moms house", "00000", "o", stamp, "ur mom", stamp, "ur mom", 1);
-       FirstLevelDivision division = new FirstLevelDivision(1000, "ur mom", stamp, "ur mom", stamp, "ur mom", 1);*/
-       User user = new User(1, "ur face", "password", stamp, "ur mom",  stamp, "ur mom");
+//       Appointment appointment = new Appointment(3, "HI", "test", "ur moms house", "pimples", stamp, stamp, stamp, "ur mom", stamp, "ur mom", 1, 2, 1);
+//       Contact contact = new Contact(4, "PJ", "jaramillo.paul12@gmail.com");
+//       Country country = new Country(4, "Utopia", stamp, "ur dad", stamp, "ur mom");
+//       Customer customer = new Customer(4, "ur dad", "ur moms house", "00000", "o", stamp, "ur mom", stamp, "ur mom", 1);
+//       FirstLevelDivision division = new FirstLevelDivision(105, "ur dad", stamp, "ur mom", stamp, "ur mom", 1);
+//       User user = new User(3, "ur dad", "password", stamp, "ur mom",  stamp, "ur mom");
 
 
-       /*appointmentDAO.insert(appointment);
-       contactDAO.insert(contact);
-       countryDAO.insert(country);
-       customerDAO.insert(customer);
-       firstLevelDivisionDAO.insert(division);*/
-       userDAO.insert(user);
-        System.out.println(user);
+//       appointmentDAO.delete(appointment);
+//       contactDAO.delete(contact);
+//       countryDAO.delete(country);
+//       customerDAO.delete(customer);
+//       firstLevelDivisionDAO.delete(division);
+//       userDAO.delete(user);
+//        System.out.println();
 
        JDBC.closeConnection();
 

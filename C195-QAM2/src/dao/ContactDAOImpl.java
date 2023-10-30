@@ -61,14 +61,21 @@ public class ContactDAOImpl implements ContactDAO{
     public int insert(Contact contact) throws SQLException {
         Connection conn  = JDBC.getConnection();
         String sql = "INSERT INTO Contacts (Contact_Name, Email) VALUES(?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
         ps.setString(1, contact.getName());
         ps.setString(2, contact.getEmail());
 
         int result = ps.executeUpdate();
+        ResultSet rs = ps.getGeneratedKeys();
+
+        if(rs.next()){
+            int id = rs.getInt(1);
+            contact.setId(id);
+        }
 
         JDBC.closePreparedStatement(ps);
+        JDBC.closeResultSet(rs);
         JDBC.closeConnection(conn);
 
         return result;

@@ -82,7 +82,7 @@ public class AppointmentDAOImpl implements AppointmentDAO{
     public int insert(Appointment appointment) throws SQLException {
         Connection conn = JDBC.getConnection();
         String sql = "INSERT INTO Appointments (Title, Description, Location, Type, Start, End, Create_Date, Created_by, Last_Update, Last_Updated_By, Customer_ID, User_ID, Contact_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
         ps.setString(1, appointment.getTitle());
         ps.setString(2, appointment.getDescription());
@@ -99,8 +99,15 @@ public class AppointmentDAOImpl implements AppointmentDAO{
         ps.setInt(13, appointment.getContact());
 
         int result = ps.executeUpdate();
+        ResultSet rs = ps.getGeneratedKeys();
+
+        if(rs.next()){
+            int id = rs.getInt(1);
+            appointment.setID(id);
+        }
 
         JDBC.closePreparedStatement(ps);
+        JDBC.closeResultSet(rs);
         JDBC.closeConnection(conn);
 
         return result;

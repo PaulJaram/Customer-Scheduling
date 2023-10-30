@@ -75,8 +75,8 @@ public class CustomerDAOImpl implements CustomerDAO{
     public int insert(Customer customer) throws SQLException {
         Connection conn = JDBC.getConnection();
         String sql = "INSERT INTO Customers (Customer_Name, Address, Postal_Code, Phone, Create_Date, Created_By, Last_Update, Last_Updated_By, Division_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-        PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, customer.getName());
         ps.setString(2, customer.getAddress());
         ps.setString(3, customer.getPostalCode());
@@ -88,8 +88,15 @@ public class CustomerDAOImpl implements CustomerDAO{
         ps.setInt(9, customer.getDivisionID());
 
         int result = ps.executeUpdate();
+        ResultSet rs = ps.getGeneratedKeys();
+
+        if(rs.next()){
+            int id = rs.getInt(1);
+            customer.setId(id);
+        }
 
         JDBC.closePreparedStatement(ps);
+        JDBC.closeResultSet(rs);
         JDBC.closeConnection(conn);
 
         return result;
