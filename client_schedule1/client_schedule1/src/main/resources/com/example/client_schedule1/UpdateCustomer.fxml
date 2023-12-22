@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client_schedule1.controller.UpdateCustomerController">
+    <children>
+        <ComboBox fx:id="divisionBox" layoutX="228.0" layoutY="283.0" prefWidth="150.0" />
+        <TextField fx:id="nameTF" layoutX="230.0" layoutY="111.0" />
+        <TextField fx:id="addressTF" layoutX="229.0" layoutY="150.0" />
+        <TextField fx:id="postalCodeTF" layoutX="229.0" layoutY="193.0" />
+        <TextField fx:id="phoneTF" layoutX="228.0" layoutY="327.0" />
+        <ComboBox fx:id="countryBox" layoutX="228.0" layoutY="239.0" onAction="#onCountry" prefWidth="150.0" />
+        <Label layoutX="273.0" layoutY="23.0" text="Customer">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="146.0" layoutY="118.0" text="Name" />
+        <Label layoutX="146.0" layoutY="157.0" text="Address" />
+        <Label layoutX="146.0" layoutY="200.0" text="Postal Code" />
+        <Label layoutX="146.0" layoutY="334.0" text="Phone" />
+        <Label layoutX="146.0" layoutY="283.0" text="Division" />
+        <Label layoutX="146.0" layoutY="239.0" text="Country" />
+        <Button fx:id="submitButton" layoutX="323.0" layoutY="378.0" mnemonicParsing="false" onAction="#onSubmitButton" text="Submit" />
+        <TextField fx:id="idTF" editable="false" layoutX="230.0" layoutY="70.0" opacity="0.5" />
+        <Label layoutX="146.0" layoutY="73.0" text="ID" />
+        <Button fx:id="cancelButton" layoutX="228.0" layoutY="378.0" mnemonicParsing="false" onAction="#onCancel" text="Cancel" />
+    </children>
+</AnchorPane>

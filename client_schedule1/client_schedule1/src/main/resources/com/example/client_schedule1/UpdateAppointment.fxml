@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="701.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client_schedule1.controller.UpdateAppointmentController">
+    <children>
+        <Label layoutX="251.0" layoutY="33.0" text="Update Appointment">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="125.0" layoutY="105.0" text="Title" />
+        <Label layoutX="125.0" layoutY="146.0" text="Description" />
+        <Label layoutX="125.0" layoutY="284.0" text="Location" />
+        <Label layoutX="125.0" layoutY="331.0" text="Contact" />
+        <ComboBox fx:id="contactBox" layoutX="250.0" layoutY="331.0" prefWidth="150.0" />
+        <Label layoutX="125.0" layoutY="369.0" text="Type" />
+        <Label layoutX="125.0" layoutY="415.0" text="Date" />
+        <Label layoutX="125.0" layoutY="455.0" text="Start Time" />
+        <Label layoutX="125.0" layoutY="494.0" text="End Time" />
+        <Label layoutX="125.0" layoutY="534.0" text="Customer ID" />
+        <Label layoutX="125.0" layoutY="568.0" text="User ID" />
+        <TextArea fx:id="descriptionTA" layoutX="250.0" layoutY="146.0" prefHeight="111.0" prefWidth="287.0" promptText="Description of the appointment. 50 Chararacter Limit" />
+        <TextField fx:id="titleTF" editable="false" layoutX="250.0" layoutY="101.0" />
+        <TextField fx:id="typeTF" layoutX="250.0" layoutY="369.0" />
+        <TextField fx:id="locationTF" layoutX="250.0" layoutY="284.0" />
+        <ComboBox fx:id="endTimes" layoutX="250.0" layoutY="490.0" prefWidth="150.0" />
+        <Button fx:id="submitButton" layoutX="346.0" layoutY="606.0" mnemonicParsing="false" onAction="#onSubmitButton" text="Submit" />
+        <Label layoutX="125.0" layoutY="72.0" text="ID" />
+        <TextField fx:id="idTF" editable="false" layoutX="250.0" layoutY="68.0" opacity="0.5" />
+        <DatePicker fx:id="Dates" editable="false" layoutX="250.0" layoutY="403.0" />
+        <ComboBox fx:id="startTimes" layoutX="250.0" layoutY="451.0" prefWidth="150.0" />
+        <Button fx:id="cancelButton" layoutX="250.0" layoutY="606.0" mnemonicParsing="false" onAction="#onCancel" text="Cancel" />
+        <ComboBox fx:id="customerBox" layoutX="250.0" layoutY="530.0" prefWidth="150.0" />
+        <ComboBox fx:id="userBox" layoutX="250.0" layoutY="564.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>

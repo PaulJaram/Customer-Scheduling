@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="730.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client_schedule1.controller.MainMenuController">
+    <children>
+        <TableView fx:id="appointmentsTable" layoutX="40.0" layoutY="117.0" prefHeight="200.0" prefWidth="663.0">
+            <columns>
+                <TableColumn fx:id="appointmentID" text="Appointment ID" />
+                <TableColumn fx:id="title" text="Title" />
+                <TableColumn fx:id="description" text="Description" />
+                <TableColumn fx:id="location" text="Location" />
+                <TableColumn fx:id="contact" text="Contact" />
+                <TableColumn fx:id="type" text="Type" />
+                <TableColumn fx:id="start" text="Start" />
+                <TableColumn fx:id="end" text="End" />
+                <TableColumn fx:id="customerID" text="Customer ID" />
+                <TableColumn fx:id="userID" text="User ID" />
+            </columns>
+        </TableView>
+        <Label layoutX="277.0" layoutY="28.0" text="Scheduling System">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Label>
+        <Label layoutX="40.0" layoutY="90.0" text="Appointments">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Label>
+        <Button fx:id="addAppointment" layoutX="42.0" layoutY="339.0" mnemonicParsing="false" onAction="#onAddAppointment" text="Add" />
+        <Button fx:id="updateAppointment" layoutX="105.0" layoutY="339.0" mnemonicParsing="false" onAction="#onUpdateAppointment" text="Update" />
+        <Button fx:id="deleteAppointment" layoutX="181.0" layoutY="339.0" mnemonicParsing="false" onAction="#onDeleteAppointment" text="Delete" />
+        <Label layoutX="40.0" layoutY="429.0" text="Customers">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Label>
+        <TableView fx:id="customerTable" layoutX="42.0" layoutY="466.0" prefHeight="200.0" prefWidth="570.0">
+            <columns>
+                <TableColumn fx:id="customer" text="Customer ID" />
+                <TableColumn fx:id="name" text="Name" />
+                <TableColumn fx:id="address" text="Address" />
+                <TableColumn fx:id="postalCode" text="Postal Code" />
+                <TableColumn fx:id="division" text="Division" />
+                <TableColumn fx:id="phone" text="Phone" />
+            </columns>
+        </TableView>
+        <Button fx:id="addCustomer" layoutX="42.0" layoutY="686.0" mnemonicParsing="false" onAction="#onAddCustomer" text="Add" />
+        <Button fx:id="updateCustomer" layoutX="105.0" layoutY="686.0" mnemonicParsing="false" onAction="#onUpdateCustomer" text="Update" />
+        <Button fx:id="deleteCustomer" layoutX="181.0" layoutY="686.0" mnemonicParsing="false" onAction="#onDeleteCustomer" text="Delete" />
+        <RadioButton fx:id="weekRadio" layoutX="579.0" layoutY="90.0" mnemonicParsing="false" onAction="#onWeekRadio" selected="true" text="View Current Week">
+            <toggleGroup>
+                <ToggleGroup fx:id="appointmentTableTG" />
+            </toggleGroup></RadioButton>
+        <ComboBox fx:id="monthBox" layoutX="419.0" layoutY="88.0" onAction="#onMonthBox" prefWidth="150.0" promptText="Select Month" />
+        <RadioButton fx:id="monthRadio" layoutX="307.0" layoutY="92.0" mnemonicParsing="false" onAction="#onMonthRadio" selected="true" text="View By Month" toggleGroup="$appointmentTableTG" />
+        <RadioButton fx:id="viewAll" layoutX="207.0" layoutY="92.0" mnemonicParsing="false" onAction="#onViewAll" selected="true" text="View All" toggleGroup="$appointmentTableTG" />
+        <Button fx:id="scheduleContacts" layoutX="520.0" layoutY="339.0" mnemonicParsing="false" onAction="#onScheduleContacts" text="Contact Schedules" />
+        <Button fx:id="reportsButton" layoutX="644.0" layoutY="339.0" mnemonicParsing="false" onAction="#onReportsButton" text="Reports" />
+        <Label layoutX="457.0" layoutY="343.0" text="Reports:" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,7 @@
+module:com.example.client_schedule1
+com.example.client_schedule1
+com.example.client_schedule1.controller
+com.example.client_schedule1.helper
+com.example.client_schedule1.helper.DAO
+com.example.client_schedule1.helper.Impl
+com.example.client_schedule1.model
